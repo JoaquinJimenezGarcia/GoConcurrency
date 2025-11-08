@@ -24,6 +24,7 @@ func main() {
 	var wg sync.WaitGroup // WaitGroup helps us to wait for things to finish.
 	words := []string{"apple", "banana", "cherry", "alpha"}
 	wg.Add(4) // We pass a 4 since we need to wait for the 4 elements to be printed. Also could use len(words)
+	// If we indicate an int bigger than the go routines, the program won't wait forever, it will fail.
 
 	for i, word := range words {
 		go printSomethingExtended(fmt.Sprintf("%d: %s", i, word), &wg)
